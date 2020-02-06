@@ -1,0 +1,12 @@
+
+Start-sida:
+npm init
+express
+ejs
+mongoose
+
+mappar:
+views
+model
+config
+router
