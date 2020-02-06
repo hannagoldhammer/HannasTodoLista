@@ -3,16 +3,21 @@ const config = require("./config/config");
 const express = require("express");
 const mongoose = require("mongoose")
 const todoRouter = require("./router/todoRouter");
-// const path = require("path");
+const sassMiddleware = require("node-sass-middleware");
+const path = require("path");
 const app = express();
 
 // För att läsa av data som postas till databasen. Denna datan är urlencodad.
 app.use(express.urlencoded({extended: true}));
 
-// Måste den vara i en speciall ordning? 
+// Middleware för sass
+app.use(sassMiddleware({
+    src: path.join(__dirname, "sass"),
+    dest: path.join(__dirname, "public")
+}));
 
 // app.use(express.static(path.join(__dirname +'/public')))
-app.use('/public', express.static('public'))
+app.use(express.static('public'));
 
 // Läsa av views-mappen med ejs
 app.set("view engine", "ejs");

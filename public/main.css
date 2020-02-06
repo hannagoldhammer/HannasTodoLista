@@ -1,21 +1,23 @@
 body {
-    background-image: url(/public/img/Bergen2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-button{
-    color: red;
-}
-
-.mainDiv{
+  background-image: url(/img/Bergen2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  body button {
+    background-color: pink;
+    border-color: pink; }
+  body a {
+    color: black;
+    text-decoration: none; }
+  body .mainDiv {
     margin: auto;
     text-align: center;
     border: solid grey 1px;
     border-radius: 5px;
-    box-shadow:  0px 0px 28px gray;
+    box-shadow: 0px 0px 28px gray;
     width: 50%;
     padding: 20px;
     margin-top: 30px;
-    background-color: white;
-}
+    background-color: white; }
+    body .mainDiv .todoText {
+      padding: 10px; }

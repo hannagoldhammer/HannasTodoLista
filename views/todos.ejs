@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/public/main.css">
-    <script type="text/javascript" src="/public/todo.js"></script>
-    <title>Hannas todo lista</title>
-</head>
-
+<!-- includera header.ejs -->
+<%- include("header.ejs") %> 
 <body>
     <button class="btnHide" onclick="handleClick()">Hide  div</button>
+    <div class="mainDiv">
+        <h1>My todo list</h1>
+    </div>
     <div class="mainDiv" id="mainDiv">
         <!-- Loopa igenom allTodo -->
         <% allTodos.forEach((oneTodo) => { %>
-        <div> <%= oneTodo.text %> 
+        <div class="todoText"> <%= oneTodo.text %> 
+            <br>
         <button><a href="/update/<%=oneTodo._id %>">Update todo</a></button>
         <button><a href="/delete/<%=oneTodo._id %>">Delete todo</a></button>
 
         </div>
-        <% }) %>
+        <% }) %> 
 
         <form action="/todos" method="post">
             <input type="text" name="text" placeholder="My new todo">
@@ -29,4 +23,4 @@
     </div>
 </body>
 
-</html>
+</html> 

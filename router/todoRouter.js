@@ -20,6 +20,7 @@ const router = express.Router();
 
 router.route("/todos")
     .get(async(req, res)  => {
+        console.log(req.query)
         // Hitta alla newTodos som är sparade på databasen
         const allTodos = await newTodos.find().sort({text: 1});
         // Rednera todos.ejs och skicka in objektet allTodos som innehåller alla newTodos som finns sparade på databasen.
@@ -27,8 +28,12 @@ router.route("/todos")
     })
     
     .post(async (req, res) => {
-        await new newTodos({text: req.body.text}).save();
-        res.redirect("todos");
+        await new newTodos({text: req.body.text}).save((error, success) => {
+            if(error){
+                res.send(error._message)
+            }else
+            res.redirect("todos")
+        });
     })
 
 
@@ -40,7 +45,7 @@ router.route("/update/:id")
     })
     .post( async (req, res) => {
         // Vad händer här?
-        await newTodos.updateOne({_id: req.body.id}, {$set: {text: req.body.text}})
+        await newTodos.updateOne({_id: req.body.id}, {$set: {text: req.body.text}}, {runValidators: true})
         res.redirect("/todos");
     })
 
