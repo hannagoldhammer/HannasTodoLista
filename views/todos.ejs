@@ -1,21 +1,34 @@
 <!-- includera header.ejs -->
-<%- include("header.ejs") %> 
+<%- include("header.ejs") %>
+
 <body>
-    <button class="btnHide" onclick="handleClick()">Hide  div</button>
+    <button class="btnHide" onclick="handleClick()">Hide div</button>
     <div class="mainDiv">
         <h1>My todo list</h1>
     </div>
+    <div class="sortDiv">
+        <button><a href="/todos/?sort=1">Sort by A -Ö</a></button>
+        <button><a href="/todos/?sort=-1">Sort by Ö - A</a></button>
+    </div>
     <div class="mainDiv" id="mainDiv">
-        <!-- Loopa igenom allTodo -->
-        <% allTodos.forEach((oneTodo) => { %>
-        <div class="todoText"> <%= oneTodo.text %> 
+        <% threeTodos.forEach((oneTodo) => { %> 
+        <div class="todoText"> <%= oneTodo.text %>
             <br>
-        <button><a href="/update/<%=oneTodo._id %>">Update todo</a></button>
-        <button><a href="/delete/<%=oneTodo._id %>">Delete todo</a></button>
-
+            <button><a href="/update/<%=oneTodo._id %>">Update todo</a></button>
+            <button><a href="/delete/<%=oneTodo._id %>">Delete todo</a></button>
         </div>
-        <% }) %> 
+        <% }) %>
 
+            <br>
+        <% for (let page = 1; page <= pagesCount && pagesCount > 1; page++) { %>
+            <% if (currentPage == page){ %>
+            <a href="/todos/?page=<%= page %>" class="active"><%= page %></a> 
+            <% }else { %>
+                <a href="/todos/?page=<%= page %>"><%= page %></a> 
+            <% } %>
+            
+        <% } %>
+    
         <form action="/todos" method="post">
             <input type="text" name="text" placeholder="My new todo">
             <button type="submit">Add to list</button>
@@ -23,4 +36,4 @@
     </div>
 </body>
 
-</html> 
+</html>
