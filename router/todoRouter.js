@@ -40,6 +40,12 @@ router.route("/update/:id")
         res.redirect("/todos");
     })
 
+
+router.route("/todos/about")
+    .get(async (req, res) => {
+        res.render("about");
+    })
+
 // För att kunna göra en delete
 router.get("/delete/:id", async (req, res) => {
     await newTodos.deleteOne({ _id: req.params.id })

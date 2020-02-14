@@ -5,8 +5,14 @@ express
 ejs
 mongoose
 
-mappar:
+Mappar:
 views
 model
 config
 router
+
+Till hela mappen:
+npm install cypress --save-dev  // mocha och chai är inbyggt 
+
+I Cypress mappen/intergation (inte under examples mappen):
+Skapa en mapp som heter "todo_ui_spec.js"

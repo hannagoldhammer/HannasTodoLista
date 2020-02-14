@@ -39,3 +39,5 @@ mongoose.connect(config.databaseURL, options).then(() => {
     console.log(`You are successfully connected to port: ${port}`);
     app.listen(port)
 })
+
+module.exports = {app};

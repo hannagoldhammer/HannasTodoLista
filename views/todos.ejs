@@ -3,6 +3,7 @@
 
 <body>
     <button class="btnHide" onclick="handleClick()">Hide div</button>
+    <button><a href="/todos/about">About</a></button>
     <div class="mainDiv">
         <h1>My todo list</h1>
     </div>
@@ -15,7 +16,7 @@
         <div class="todoText"> <%= oneTodo.text %>
             <br>
             <button><a href="/update/<%=oneTodo._id %>">Update todo</a></button>
-            <button><a href="/delete/<%=oneTodo._id %>">Delete todo</a></button>
+            <button><a href="/delete/<%=oneTodo._id %>" class="delete">Delete todo</a></button>
         </div>
         <% }) %>
 
@@ -30,8 +31,8 @@
         <% } %>
     
         <form action="/todos" method="post">
-            <input type="text" name="text" placeholder="My new todo">
-            <button type="submit">Add to list</button>
+            <input type="text" name="text" id="input" placeholder="My new todo">
+            <button type="submit" id="submitBtn">Add to list</button>
         </form>
     </div>
 </body>
