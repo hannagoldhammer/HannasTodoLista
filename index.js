@@ -27,7 +27,7 @@ app.use(todoRouter);
 
 // Lyssna på port 8010
 const port = process.env.PORT || 8030;
-console.log("Hej")
+
 // För att undvika error i terminalen när man använder mongoose.
 const options = {
     useUnifiedTopology: true, 
