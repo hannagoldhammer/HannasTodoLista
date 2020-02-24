@@ -1,0 +1,12 @@
+<%- include("header.ejs") %> 
+<div class="mainDiv">
+    <h1>Update this todo</h1>
+</div>
+<div class="mainDiv">
+    <form action="/update/:id" method="POST">
+        <!-- name="text" = ska vara samma som i schema -->
+        <input type="text" name="text" value="<%=updateSingelTodo.text %>" required>
+        <input type="text" name="id" value="<%= updateSingelTodo._id %>" hidden>
+        <button type="submit">Update todo</button>
+    </form>
+</div>
