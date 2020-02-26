@@ -26,7 +26,7 @@ app.set("view engine", "ejs");
 app.use(todoRouter);
 
 // Lyssna på port 8010
-const port = process.env.PORT || 8030;
+const dbUrl = process.env.MONGO_ATLAS_URL || 8030;
 
 // För att undvika error i terminalen när man använder mongoose.
 const options = {
@@ -35,7 +35,7 @@ const options = {
 }
 
 // Connecta till mongoose och starta sedan applikationen 
-mongoose.connect(config.databaseURL, options).then(() => {
+mongoose.connect(dbUrl, options).then(() => {
     console.log(`You are successfully connected to port: ${port}`);
     app.listen(port)
 })

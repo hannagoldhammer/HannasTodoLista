@@ -4,6 +4,7 @@ npm init
 express
 ejs
 mongoose
+webpack
 
 Mappar:
 views
@@ -16,3 +17,5 @@ npm install cypress --save-dev  // mocha och chai är inbyggt
 
 I Cypress mappen/intergation (inte under examples mappen):
 Skapa en mapp som heter "todo_ui_spec.js"
+
+
